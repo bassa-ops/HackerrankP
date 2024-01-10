@@ -27,3 +27,24 @@ SELECT CONCAT('There are a total of ', COUNT(Occupation), ' ',
 FROM OCCUPATIONS
 GROUP BY Occupation
 ORDER BY COUNT(Occupation);
+
+#P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+
+* * * * * 
+* * * * 
+* * * 
+* * 
+*
+Write a query to print the pattern P(20).
+
+DELIMITER $$
+
+CREATE PROCEDURE stars(r INT) 
+    BEGIN 
+        WHILE r >= 1 DO 
+            SELECT repeat('* ', r);
+            SET r = r - 1;
+            END WHILE;
+    END; $$
+    
+CALL stars(20);

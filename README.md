@@ -48,3 +48,22 @@ CREATE PROCEDURE stars(r INT)
     END; $$
     
 CALL stars(20);
+
+
+#P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+
+* 
+* * 
+* * * 
+* * * * 
+* * * * *
+Write a query to print the pattern P(20).
+
+WITH NumberSequence AS (
+    SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS RowNum
+    FROM INFORMATION_SCHEMA.COLUMNS
+)
+
+SELECT REPEAT('* ', RowNum) AS Pattern
+FROM NumberSequence
+WHERE RowNum <= 20;

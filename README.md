@@ -1,4 +1,4 @@
-# HackerrankP
+**# HackerrankP
 /*Challenges practising 
 Generate the following two result sets:
 
@@ -8,11 +8,8 @@ Query the number of ocurrences of each occupation in OCCUPATIONS. Sort the occur
 There are a total of [occupation_count] [occupation]s.
 where [occupation_count] is the number of occurrences of an occupation in OCCUPATIONS and [occupation] is the lowercase occupation name. If more than one Occupation has the same [occupation_count], they should be ordered alphabetically.
 
-Note: There will be at least two entries in the table for each type of occupation.*/ 
+Note: There will be at least two entries in the table for each type of occupation.*/ **
 
-/*
-Enter your query here.
-*/
 SELECT CONCAT(Name, '(', LEFT(Occupation, 1), ')') AS NameAndProfession
 FROM OCCUPATIONS
 ORDER BY NameAndProfession;
@@ -28,16 +25,16 @@ FROM OCCUPATIONS
 GROUP BY Occupation
 ORDER BY COUNT(Occupation);
 
-#P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+**#P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
 
 * * * * * 
 * * * * 
 * * * 
 * * 
 *
-Write a query to print the pattern P(20).
+Write a query to print the pattern P(20).**
 
-DELIMITER $$
+DELIMITER 
 
 CREATE PROCEDURE stars(r INT) 
     BEGIN 
@@ -45,12 +42,12 @@ CREATE PROCEDURE stars(r INT)
             SELECT repeat('* ', r);
             SET r = r - 1;
             END WHILE;
-    END; $$
+    END; 
     
 CALL stars(20);
 
 
-#P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+**#P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
 
 * 
 * * 
@@ -58,7 +55,7 @@ CALL stars(20);
 * * * * 
 * * * * *
 Write a query to print the pattern P(20).
-
+**
 WITH NumberSequence AS (
     SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS RowNum
     FROM INFORMATION_SCHEMA.COLUMNS
@@ -79,7 +76,7 @@ GROUP BY row_num
 
 
 
-#BST Tree Solution
+**#BST Tree Solution**
 SELECT N,
 CASE 
   WHEN P IS NULL THEN 'Root'

@@ -65,7 +65,6 @@ SELECT REPEAT('* ', RowNum) AS Pattern
 FROM NumberSequence
 WHERE RowNum <= 20;
 
-
 # occupations Solution 
 SELECT MIN(IF(Occupation = 'Doctor',Name,NULL)),MIN(IF(Occupation = 'Professor',Name,NULL)),MIN(IF(Occupation = 'Singer',Name,NULL)),MIN(IF(Occupation = 'Actor',Name,NULL)) 
 FROM(
@@ -74,9 +73,7 @@ FROM(
     FROM OCCUPATIONS) AS ord
 GROUP BY row_num 
 
-
-
-**#BST Tree Solution**
+**# BST Tree Solution**
 SELECT N,
 CASE 
   WHEN P IS NULL THEN 'Root'
